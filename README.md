@@ -9,12 +9,15 @@ Frontend: The frontend of the symptom checker chatbot project involves designing
 Backend: In the backend of the symptom checker chatbot project, Python and Flask work cooperatively to process user input and generate accurate health assessments. Flask handles incoming requests from the frontend, directing them to Python functions responsible for symptom analysis and disease identification. Upon receiving symptom data from the user via the frontend interface, Python's natural language processing capabilities, possibly utilizing libraries like Pandas,sklearn.utils,flask,flask.cors, dissect the input to extract pertinent keywords and patterns. These extracted symptoms are then compared against a comprehensive database of medical conditions and associated symptoms. Utilizing advanced algorithms, the backend logic identifies potential diseases that align with the user-reported symptoms. Alongside disease names, additional details such as common symptoms, treatment options, and preventative measures can be fetched from the database or external APIs. Flask manages the seamless flow of information between the frontend and backend, ensuring a responsive and user-friendly experience. This backend system is meticulously crafted to deliver reliable and timely health insights, aiding users in making informed decisions about their well-being.
 
 Technologies used
+
 Python(Flask) HTML CSS JavaScript
 
 How to configure
+
 In our project the user will provide symptoms of their illness or dicomfort as a Yes or No answer where the questions are provided by the system based on the database.When all symptoms matchhes to a diseasee then the system will the disease name,treatment details and other details about the disease.
 
 How to Run
+
 The running of the software based on comparing the details fo symptoms provided by the user and the existing dataset present in the Kaggle website.By this comparison off the information we reach into a conclusion where the disease name ,details about the disease will be specified.
 
 Other Links
