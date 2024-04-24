@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://www.click4vector.com/public/uploads/preview/jute-texture-photo-stock-background-hd-wallpaper-11671102561t7i5hekxm7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents horizontal scrollbar */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.diseasename{
+    text-align: center;
+    font-size: 32px;
+}
+
+.disease {
+    padding: 20px;
+    margin-top: 20px;
+}
+.heads{
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Styling for the original list items */
+li {
+    color: #e0e0e0;
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    background-color: #333;
+}

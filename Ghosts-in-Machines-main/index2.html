@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Symptom Checker</title>
+    <link rel="stylesheet" href="trail1.css"> <!-- Add this line to link the CSS file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Health Symptom Checker</h1>
+    <form id="symptomForm">
+        <label for="symptoms"><h3>Enter Symptoms (comma-separated):</h3></label>
+        <input type="text" id="symptoms" name="symptoms"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <h1>Analysis</h1>
+    <div id="result"></div>
+    <script>
+        $(document).ready(function() {
+            $('#symptomForm').submit(function(event) {
+                event.preventDefault();
+                var formData = {
+                    symptoms: $('#symptoms').val().split(',') // Assuming symptoms are comma-separated
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://127.0.0.1:5000/analyze', // Change the URL to the Flask endpoint
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        $('#result').html(`
+                            <h2>${response.disease_name}</h2>
+                            <p><strong>Symptoms:</strong> ${response.symptoms_list.join(', ')}</p>
+                            <p><strong>Symptom Description:</strong> ${response.symptom_description}</p>
+                            <p><strong>Precautions:</strong> ${response.precautions.join(', ')}</p>
+                        `);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        $('#result').text('An error occurred. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const symptoms = document.querySelectorAll('.symptom');
+
+            symptoms.forEach(symptom => {
+                symptom.addEventListener('click', function() {
+                    // Remove 'selected' class from all symptoms
+                    symptoms.forEach(s => {
+                        s.classList.remove('selected');
+                    });
+                    // Add 'selected' class to the clicked symptom
+                    this.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
